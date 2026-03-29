@@ -74,15 +74,25 @@ body.sheet-open {
 .top-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 10px;
   margin-bottom: 14px;
+  min-width: 0;
 }
+.tabs-wrap {
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.tabs-wrap::-webkit-scrollbar { display: none; }
 .tabs {
   display: flex;
   gap: 2px;
   background: var(--border);
   border-radius: 100px;
   padding: 3px;
+  width: max-content;
 }
 .tab {
   background: none;
@@ -379,7 +389,7 @@ body.sheet-open {
   <div class="divider"></div>
 
   <div class="top-row">
-    <div class="tabs" id="tabs"></div>
+    <div class="tabs-wrap"><div class="tabs" id="tabs"></div></div>
     <button class="btn-add" onclick="openSheet()">+ Add</button>
   </div>
 
